@@ -1,0 +1,73 @@
+{
+  "experiment": "synthetic controls, not live-model performance",
+  "imperfect_verifier": {
+    "false_positive_probability": 0.1,
+    "false_negative_probability": 0.05,
+    "note": "deterministic per answer; not calibrated from real verifiers"
+  },
+  "scenarios": {
+    "calibrated_no_escalation": {
+      "tasks": 300,
+      "accepted": 280,
+      "correct": 280,
+      "false_accepts": 0,
+      "calls": 300,
+      "budget_exhausted": 0,
+      "simulated_cost": 0.0127775
+    },
+    "calibrated_target_095": {
+      "tasks": 300,
+      "accepted": 299,
+      "correct": 299,
+      "false_accepts": 0,
+      "calls": 318,
+      "budget_exhausted": 0,
+      "simulated_cost": 0.0193044
+    },
+    "calibrated_imperfect_verifier": {
+      "tasks": 300,
+      "accepted": 285,
+      "correct": 284,
+      "false_accepts": 1,
+      "calls": 349,
+      "budget_exhausted": 0,
+      "simulated_cost": 0.0146929
+    },
+    "cascade_imperfect_verifier": {
+      "tasks": 300,
+      "accepted": 285,
+      "correct": 274,
+      "false_accepts": 11,
+      "calls": 481,
+      "budget_exhausted": 0,
+      "simulated_cost": 0.0091148
+    },
+    "budget_0.00002": {
+      "tasks": 300,
+      "accepted": 0,
+      "correct": 0,
+      "false_accepts": 0,
+      "calls": 0,
+      "budget_exhausted": 300,
+      "simulated_cost": 0.0
+    },
+    "budget_0.0001": {
+      "tasks": 300,
+      "accepted": 157,
+      "correct": 157,
+      "false_accepts": 0,
+      "calls": 300,
+      "budget_exhausted": 10,
+      "simulated_cost": 0.0017965
+    },
+    "budget_0.001": {
+      "tasks": 300,
+      "accepted": 299,
+      "correct": 299,
+      "false_accepts": 0,
+      "calls": 322,
+      "budget_exhausted": 0,
+      "simulated_cost": 0.0137054
+    }
+  }
+}

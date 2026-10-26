@@ -1,0 +1,44 @@
+{
+  "reasoning": {
+    "small": [
+      22,
+      80
+    ],
+    "medium": [
+      56,
+      80
+    ],
+    "large": [
+      79,
+      80
+    ]
+  },
+  "arithmetic": {
+    "small": [
+      44,
+      80
+    ],
+    "medium": [
+      72,
+      80
+    ],
+    "large": [
+      79,
+      80
+    ]
+  },
+  "extraction": {
+    "small": [
+      79,
+      80
+    ],
+    "medium": [
+      80,
+      80
+    ],
+    "large": [
+      80,
+      80
+    ]
+  }
+}

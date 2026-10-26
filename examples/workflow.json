@@ -1,0 +1,6 @@
+{
+  "tasks": [
+    {"id": "extract", "kind": "extraction", "role": "You are a structured information extraction agent.", "prompt": "From this record: 'Order number 104, item count 3', return exactly {\"order_id\":104,\"items\":3} with no extra text.", "max_output_tokens": 64, "validation": {"type": "exact", "expected": "{\"order_id\":104,\"items\":3}"}},
+    {"id": "summarize", "kind": "reasoning", "role": "You are an order summary agent.", "dependencies": ["extract"], "prompt": "Use the dependency evidence. Return only valid JSON with keys order_id and summary.", "max_output_tokens": 128, "validation": {"type": "json_keys", "required": ["order_id", "summary"]}}
+  ]
+}

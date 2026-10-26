@@ -1,0 +1,374 @@
+{
+  "experiment": "synthetic replay; no live LLM calls",
+  "seed": 20261026,
+  "calibration_tasks": 240,
+  "test_tasks": 300,
+  "train_sha256": "225c48f5a9b2630fc28fcf6d844a082a8ec47a6795175d08b063d5001dc6faad",
+  "test_sha256": "6ab6b9b819e87514ab27e6c0c7a895742879eac3e9c0c9e7bfce7cacc706495a",
+  "source_sha256": "0f980a3cbaab4fa88f2cecd3398d10c5288ff820083d732d071aa260bf66865d",
+  "python": "3.12.14",
+  "assumptions": {
+    "scripted_success_probabilities": {
+      "small": [
+        0.96,
+        0.58,
+        0.24
+      ],
+      "medium": [
+        0.98,
+        0.93,
+        0.68
+      ],
+      "large": [
+        0.99,
+        0.98,
+        0.96
+      ]
+    },
+    "modeled_latency_ms": {
+      "small": 80,
+      "medium": 180,
+      "large": 450
+    },
+    "rates": {
+      "small": {
+        "input_per_million": "0.10",
+        "output_per_million": "0.20"
+      },
+      "medium": {
+        "input_per_million": "0.40",
+        "output_per_million": "0.80"
+      },
+      "large": {
+        "input_per_million": "1.50",
+        "output_per_million": "3.00"
+      }
+    },
+    "validator": "exact-match oracle; zero modeled external cost",
+    "quality_target": 0.85,
+    "routing": "frozen calibration; no test-set updates"
+  },
+  "policies": {
+    "always_small": {
+      "tasks": 300,
+      "successful_tasks": 157,
+      "success_rate": 0.5233333333333333,
+      "success_rate_wilson_95": [
+        0.466878,
+        0.579198
+      ],
+      "simulated_cost": 0.0017965,
+      "simulated_cost_per_success": 1.1443e-05,
+      "calls": 300,
+      "calls_per_task": 1.0,
+      "escalated_tasks": 0,
+      "input_tokens": 17365,
+      "output_tokens": 300,
+      "simulated_p50_ms": 80,
+      "simulated_p95_ms": 80,
+      "measured_replay_wall_ms": 2.423057003397844
+    },
+    "always_large": {
+      "tasks": 300,
+      "successful_tasks": 291,
+      "success_rate": 0.97,
+      "success_rate_wilson_95": [
+        0.943977,
+        0.984138
+      ],
+      "simulated_cost": 0.0269475,
+      "simulated_cost_per_success": 9.2603e-05,
+      "calls": 300,
+      "calls_per_task": 1.0,
+      "escalated_tasks": 0,
+      "input_tokens": 17365,
+      "output_tokens": 300,
+      "simulated_p50_ms": 450,
+      "simulated_p95_ms": 450,
+      "measured_replay_wall_ms": 2.5406920021850965
+    },
+    "cheap_first_cascade": {
+      "tasks": 300,
+      "successful_tasks": 299,
+      "success_rate": 0.9966666666666667,
+      "success_rate_wilson_95": [
+        0.981363,
+        0.999411
+      ],
+      "simulated_cost": 0.0083838,
+      "simulated_cost_per_success": 2.8039e-05,
+      "calls": 474,
+      "calls_per_task": 1.58,
+      "escalated_tasks": 143,
+      "input_tokens": 27889,
+      "output_tokens": 474,
+      "simulated_p50_ms": 80,
+      "simulated_p95_ms": 710,
+      "measured_replay_wall_ms": 5.264482996153674
+    },
+    "calibrated_routing": {
+      "tasks": 300,
+      "successful_tasks": 299,
+      "success_rate": 0.9966666666666667,
+      "success_rate_wilson_95": [
+        0.981363,
+        0.999411
+      ],
+      "simulated_cost": 0.0137054,
+      "simulated_cost_per_success": 4.5837e-05,
+      "calls": 322,
+      "calls_per_task": 1.0733333333333333,
+      "escalated_tasks": 20,
+      "input_tokens": 18624,
+      "output_tokens": 322,
+      "simulated_p50_ms": 180,
+      "simulated_p95_ms": 450,
+      "measured_replay_wall_ms": 4.306912993797596
+    }
+  },
+  "by_family": {
+    "always_small": {
+      "extraction": {
+        "tasks": 100,
+        "successful_tasks": 90,
+        "success_rate": 0.9,
+        "success_rate_wilson_95": [
+          0.825634,
+          0.944771
+        ],
+        "simulated_cost": 0.00058,
+        "simulated_cost_per_success": 6.444e-06,
+        "calls": 100,
+        "calls_per_task": 1.0,
+        "escalated_tasks": 0,
+        "input_tokens": 5600,
+        "output_tokens": 100,
+        "simulated_p50_ms": 80,
+        "simulated_p95_ms": 80,
+        "measured_replay_wall_ms": 0.8067070020842948
+      },
+      "arithmetic": {
+        "tasks": 100,
+        "successful_tasks": 48,
+        "success_rate": 0.48,
+        "success_rate_wilson_95": [
+          0.384646,
+          0.576834
+        ],
+        "simulated_cost": 0.00055,
+        "simulated_cost_per_success": 1.1458e-05,
+        "calls": 100,
+        "calls_per_task": 1.0,
+        "escalated_tasks": 0,
+        "input_tokens": 5300,
+        "output_tokens": 100,
+        "simulated_p50_ms": 80,
+        "simulated_p95_ms": 80,
+        "measured_replay_wall_ms": 0.7751240000288817
+      },
+      "reasoning": {
+        "tasks": 100,
+        "successful_tasks": 19,
+        "success_rate": 0.19,
+        "success_rate_wilson_95": [
+          0.125148,
+          0.277788
+        ],
+        "simulated_cost": 0.0006665,
+        "simulated_cost_per_success": 3.5079e-05,
+        "calls": 100,
+        "calls_per_task": 1.0,
+        "escalated_tasks": 0,
+        "input_tokens": 6465,
+        "output_tokens": 100,
+        "simulated_p50_ms": 80,
+        "simulated_p95_ms": 80,
+        "measured_replay_wall_ms": 0.8412260012846673
+      }
+    },
+    "always_large": {
+      "extraction": {
+        "tasks": 100,
+        "successful_tasks": 97,
+        "success_rate": 0.97,
+        "success_rate_wilson_95": [
+          0.915481,
+          0.989745
+        ],
+        "simulated_cost": 0.0087,
+        "simulated_cost_per_success": 8.9691e-05,
+        "calls": 100,
+        "calls_per_task": 1.0,
+        "escalated_tasks": 0,
+        "input_tokens": 5600,
+        "output_tokens": 100,
+        "simulated_p50_ms": 450,
+        "simulated_p95_ms": 450,
+        "measured_replay_wall_ms": 0.7539419998465746
+      },
+      "arithmetic": {
+        "tasks": 100,
+        "successful_tasks": 98,
+        "success_rate": 0.98,
+        "success_rate_wilson_95": [
+          0.929988,
+          0.994498
+        ],
+        "simulated_cost": 0.00825,
+        "simulated_cost_per_success": 8.4184e-05,
+        "calls": 100,
+        "calls_per_task": 1.0,
+        "escalated_tasks": 0,
+        "input_tokens": 5300,
+        "output_tokens": 100,
+        "simulated_p50_ms": 450,
+        "simulated_p95_ms": 450,
+        "measured_replay_wall_ms": 0.8037469997361768
+      },
+      "reasoning": {
+        "tasks": 100,
+        "successful_tasks": 96,
+        "success_rate": 0.96,
+        "success_rate_wilson_95": [
+          0.901629,
+          0.984337
+        ],
+        "simulated_cost": 0.0099975,
+        "simulated_cost_per_success": 0.000104141,
+        "calls": 100,
+        "calls_per_task": 1.0,
+        "escalated_tasks": 0,
+        "input_tokens": 6465,
+        "output_tokens": 100,
+        "simulated_p50_ms": 450,
+        "simulated_p95_ms": 450,
+        "measured_replay_wall_ms": 0.9830030026023451
+      }
+    },
+    "cheap_first_cascade": {
+      "extraction": {
+        "tasks": 100,
+        "successful_tasks": 100,
+        "success_rate": 1.0,
+        "success_rate_wilson_95": [
+          0.963007,
+          1.0
+        ],
+        "simulated_cost": 0.000899,
+        "simulated_cost_per_success": 8.99e-06,
+        "calls": 111,
+        "calls_per_task": 1.11,
+        "escalated_tasks": 10,
+        "input_tokens": 6216,
+        "output_tokens": 111,
+        "simulated_p50_ms": 80,
+        "simulated_p95_ms": 260,
+        "measured_replay_wall_ms": 1.3802109992866463
+      },
+      "arithmetic": {
+        "tasks": 100,
+        "successful_tasks": 100,
+        "success_rate": 1.0,
+        "success_rate_wilson_95": [
+          0.963007,
+          1.0
+        ],
+        "simulated_cost": 0.001859,
+        "simulated_cost_per_success": 1.859e-05,
+        "calls": 154,
+        "calls_per_task": 1.54,
+        "escalated_tasks": 52,
+        "input_tokens": 8162,
+        "output_tokens": 154,
+        "simulated_p50_ms": 260,
+        "simulated_p95_ms": 260,
+        "measured_replay_wall_ms": 1.4668179965156014
+      },
+      "reasoning": {
+        "tasks": 100,
+        "successful_tasks": 99,
+        "success_rate": 0.99,
+        "success_rate_wilson_95": [
+          0.945514,
+          0.998233
+        ],
+        "simulated_cost": 0.0056258,
+        "simulated_cost_per_success": 5.6826e-05,
+        "calls": 209,
+        "calls_per_task": 2.09,
+        "escalated_tasks": 81,
+        "input_tokens": 13511,
+        "output_tokens": 209,
+        "simulated_p50_ms": 260,
+        "simulated_p95_ms": 710,
+        "measured_replay_wall_ms": 2.4174540003514267
+      }
+    },
+    "calibrated_routing": {
+      "extraction": {
+        "tasks": 100,
+        "successful_tasks": 100,
+        "success_rate": 1.0,
+        "success_rate_wilson_95": [
+          0.963007,
+          1.0
+        ],
+        "simulated_cost": 0.000899,
+        "simulated_cost_per_success": 8.99e-06,
+        "calls": 111,
+        "calls_per_task": 1.11,
+        "escalated_tasks": 10,
+        "input_tokens": 6216,
+        "output_tokens": 111,
+        "simulated_p50_ms": 80,
+        "simulated_p95_ms": 260,
+        "measured_replay_wall_ms": 1.7969639970942808
+      },
+      "arithmetic": {
+        "tasks": 100,
+        "successful_tasks": 100,
+        "success_rate": 1.0,
+        "success_rate_wilson_95": [
+          0.963007,
+          1.0
+        ],
+        "simulated_cost": 0.002695,
+        "simulated_cost_per_success": 2.695e-05,
+        "calls": 106,
+        "calls_per_task": 1.06,
+        "escalated_tasks": 6,
+        "input_tokens": 5618,
+        "output_tokens": 106,
+        "simulated_p50_ms": 180,
+        "simulated_p95_ms": 630,
+        "measured_replay_wall_ms": 1.183867997951893
+      },
+      "reasoning": {
+        "tasks": 100,
+        "successful_tasks": 99,
+        "success_rate": 0.99,
+        "success_rate_wilson_95": [
+          0.945514,
+          0.998233
+        ],
+        "simulated_cost": 0.0101114,
+        "simulated_cost_per_success": 0.000102135,
+        "calls": 105,
+        "calls_per_task": 1.05,
+        "escalated_tasks": 4,
+        "input_tokens": 6790,
+        "output_tokens": 105,
+        "simulated_p50_ms": 450,
+        "simulated_p95_ms": 450,
+        "measured_replay_wall_ms": 1.3260809987514222
+      }
+    }
+  },
+  "comparison": {
+    "simulated_savings_vs_large": 0.4914036552555896,
+    "paired_bootstrap_savings_95": [
+      0.44057026026413215,
+      0.5392318856760077
+    ]
+  }
+}

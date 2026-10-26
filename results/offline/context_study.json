@@ -1,0 +1,518 @@
+{
+  "experiment": "synthetic dependency handoff; outputs are scripted",
+  "agents": 12,
+  "topology": "two interleaved chains; direct dependencies required",
+  "selective": {
+    "success": true,
+    "context_characters": 12230,
+    "estimated_input_tokens": 3788,
+    "trace": {
+      "success": true,
+      "tasks": [
+        {
+          "task_id": "agent-0",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-1",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-2",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-3",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-4",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-5",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-6",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-7",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-8",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-9",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-10",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-11",
+          "status": "success",
+          "model": "fixture"
+        }
+      ],
+      "attempts": [
+        {
+          "task_id": "agent-0",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.00061",
+          "input_tokens": 54,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.037465000332304044,
+          "context_chars": 0,
+          "output_sha256": "cc158a864d14d6af7a5d6b32c5f54a0eb70c188cdbd4cee57e2dd4312ea12ef0",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-1",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.00061",
+          "input_tokens": 54,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.014451999959419481,
+          "context_chars": 0,
+          "output_sha256": "6be7929026c9da5e3cabd72387f7feb655093241467be2dda64482b83d675353",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-2",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.000924",
+          "input_tokens": 368,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.033910000183823286,
+          "context_chars": 1223,
+          "output_sha256": "dfad9bbd9b35ec29b23849cd4cff931bb3dc1e1ff78af93dcae7f32c87c733f2",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-3",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.000924",
+          "input_tokens": 368,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.020489999769779388,
+          "context_chars": 1223,
+          "output_sha256": "5f6e07845bf1bdb0a8909998608f3b1dc557c5e43aeeec7d88303ae322a60728",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-4",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.000924",
+          "input_tokens": 368,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.018607000129122753,
+          "context_chars": 1223,
+          "output_sha256": "7772f022caa3635a7db7237101769c32e5cffdf11fb4d6074a36e5f0cc702bb4",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-5",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.000924",
+          "input_tokens": 368,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.015782999980729073,
+          "context_chars": 1223,
+          "output_sha256": "aa26b09abd6d0097637af07506c11e696fcd69d0015c876fb6ac75ac48080f12",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-6",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.000924",
+          "input_tokens": 368,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.04944300007991842,
+          "context_chars": 1223,
+          "output_sha256": "b9d38fbc44a1ee85648a4e81e49a1c26378fae2d2fe1a98e4afd99a8b6f06d42",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-7",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.000924",
+          "input_tokens": 368,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.015894000171101652,
+          "context_chars": 1223,
+          "output_sha256": "b66a396f926ecf081011e4e2b69515ffff443e7f25a067a8c2d91ffe641fecd0",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-8",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.000924",
+          "input_tokens": 368,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.01498199981142534,
+          "context_chars": 1223,
+          "output_sha256": "fe3118d6cf3219060ddfe31be1a9ac8c9f8ee7178b09fa071b493923d803528f",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-9",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.000924",
+          "input_tokens": 368,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.015051999980641995,
+          "context_chars": 1223,
+          "output_sha256": "37169ca55b26cb1bc9260d94dfccfefde0990011db94ed3404971aaa7913c3d0",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-10",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.000976",
+          "input_tokens": 368,
+          "output_tokens": 304,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.01504199963164865,
+          "context_chars": 1223,
+          "output_sha256": "9b7b5183c61d014ef95c8349027a9bd68f0075b7390cd58046041492a6996267",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-11",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.000976",
+          "input_tokens": 368,
+          "output_tokens": 304,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.016574999790464062,
+          "context_chars": 1223,
+          "output_sha256": "88b51c933779a26e1f510408962261ef5028d56ef4de9f5c0027eb316f4b5ba1",
+          "usage_estimated": false,
+          "detail": "exact match"
+        }
+      ],
+      "spent": "0.010564",
+      "budget": "1",
+      "billing_uncertain": false,
+      "wall_ms": 0.5259449999357457
+    }
+  },
+  "full_history": {
+    "success": true,
+    "context_characters": 80765,
+    "estimated_input_tokens": 20927,
+    "trace": {
+      "success": true,
+      "tasks": [
+        {
+          "task_id": "agent-0",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-1",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-2",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-3",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-4",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-5",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-6",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-7",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-8",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-9",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-10",
+          "status": "success",
+          "model": "fixture"
+        },
+        {
+          "task_id": "agent-11",
+          "status": "success",
+          "model": "fixture"
+        }
+      ],
+      "attempts": [
+        {
+          "task_id": "agent-0",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.00061",
+          "input_tokens": 54,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.011396999980206601,
+          "context_chars": 0,
+          "output_sha256": "cc158a864d14d6af7a5d6b32c5f54a0eb70c188cdbd4cee57e2dd4312ea12ef0",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-1",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.000924",
+          "input_tokens": 368,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.009122999927058117,
+          "context_chars": 1223,
+          "output_sha256": "6be7929026c9da5e3cabd72387f7feb655093241467be2dda64482b83d675353",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-2",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.001229",
+          "input_tokens": 673,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.07074399991324754,
+          "context_chars": 2445,
+          "output_sha256": "dfad9bbd9b35ec29b23849cd4cff931bb3dc1e1ff78af93dcae7f32c87c733f2",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-3",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.001535",
+          "input_tokens": 979,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.030745000003662426,
+          "context_chars": 3667,
+          "output_sha256": "5f6e07845bf1bdb0a8909998608f3b1dc557c5e43aeeec7d88303ae322a60728",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-4",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.00184",
+          "input_tokens": 1284,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.02945400001408416,
+          "context_chars": 4889,
+          "output_sha256": "7772f022caa3635a7db7237101769c32e5cffdf11fb4d6074a36e5f0cc702bb4",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-5",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.002146",
+          "input_tokens": 1590,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.032669000120222336,
+          "context_chars": 6111,
+          "output_sha256": "aa26b09abd6d0097637af07506c11e696fcd69d0015c876fb6ac75ac48080f12",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-6",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.002451",
+          "input_tokens": 1895,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.03511200020511751,
+          "context_chars": 7333,
+          "output_sha256": "b9d38fbc44a1ee85648a4e81e49a1c26378fae2d2fe1a98e4afd99a8b6f06d42",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-7",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.002757",
+          "input_tokens": 2201,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.0387680001949775,
+          "context_chars": 8555,
+          "output_sha256": "b66a396f926ecf081011e4e2b69515ffff443e7f25a067a8c2d91ffe641fecd0",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-8",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.003062",
+          "input_tokens": 2506,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.07582099988212576,
+          "context_chars": 9777,
+          "output_sha256": "fe3118d6cf3219060ddfe31be1a9ac8c9f8ee7178b09fa071b493923d803528f",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-9",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.003368",
+          "input_tokens": 2812,
+          "output_tokens": 278,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.04952300014338107,
+          "context_chars": 10999,
+          "output_sha256": "37169ca55b26cb1bc9260d94dfccfefde0990011db94ed3404971aaa7913c3d0",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-10",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.003725",
+          "input_tokens": 3117,
+          "output_tokens": 304,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.051916999836976174,
+          "context_chars": 12221,
+          "output_sha256": "9b7b5183c61d014ef95c8349027a9bd68f0075b7390cd58046041492a6996267",
+          "usage_estimated": false,
+          "detail": "exact match"
+        },
+        {
+          "task_id": "agent-11",
+          "model": "fixture",
+          "provider": "replay",
+          "status": "accepted",
+          "cost": "0.004056",
+          "input_tokens": 3448,
+          "output_tokens": 304,
+          "provider_latency_ms": 0,
+          "wall_ms": 0.061130000176490285,
+          "context_chars": 13545,
+          "output_sha256": "88b51c933779a26e1f510408962261ef5028d56ef4de9f5c0027eb316f4b5ba1",
+          "usage_estimated": false,
+          "detail": "exact match"
+        }
+      ],
+      "spent": "0.027703",
+      "budget": "1",
+      "billing_uncertain": false,
+      "wall_ms": 1.060621999840805
+    }
+  },
+  "context_character_reduction": 0.8485730204915496
+}

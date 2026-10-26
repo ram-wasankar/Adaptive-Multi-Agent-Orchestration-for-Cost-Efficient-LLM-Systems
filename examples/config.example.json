@@ -1,0 +1,12 @@
+{
+  "providers": {
+    "local_small": {"base_url": "http://127.0.0.1:8000/v1"},
+    "local_large": {"base_url": "http://127.0.0.1:8001/v1"}
+  },
+  "models": [
+    {"name": "small", "provider": "local_small", "remote_model": "replace-with-served-model-name", "input_per_million": "0.10", "output_per_million": "0.20", "context_window": 8192},
+    {"name": "large", "provider": "local_large", "remote_model": "replace-with-served-model-name", "input_per_million": "1.00", "output_per_million": "2.00", "context_window": 16384}
+  ],
+  "routing": {"type": "cascade"},
+  "limits": {"budget": "0.05", "context_chars": 12000, "retries": 1, "retry_backoff": 0.25}
+}

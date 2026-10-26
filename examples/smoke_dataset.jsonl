@@ -1,0 +1,3 @@
+{"id":"smoke-extract","kind":"extraction","prompt":"Return only the order number from: Order 104; quantity 3.","expected":"104","max_output_tokens":32}
+{"id":"smoke-add","kind":"arithmetic","prompt":"What is 37 + 58? Return only the integer.","expected":"95","max_output_tokens":32}
+{"id":"smoke-reason","kind":"reasoning","prompt":"Four boxes contain 25 items each. Nine items are removed. Return only the number of remaining items.","expected":"91","max_output_tokens":32}
