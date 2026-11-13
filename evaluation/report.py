@@ -14,7 +14,7 @@ def main():
     names = ["always_small", "always_large", "cheap_first_cascade", "calibrated_routing"]
     labels = ["Always small", "Always large", "Cheap-first cascade", "Calibrated routing"]
     rows = [report["policies"][name] for name in names]
-    colors = ["#9aa9b7", "#52677d", "#c28a42", "#087f8c"]
+    colors = ["#9aaecd", "#2b4267", "#7a70a8", "#238a8d"]
     plt.rcParams.update({
         "svg.hashsalt": "orchestration-report", "font.family": "DejaVu Sans",
         "font.size": 10, "text.color": "#172d46", "axes.labelcolor": "#41546a",
