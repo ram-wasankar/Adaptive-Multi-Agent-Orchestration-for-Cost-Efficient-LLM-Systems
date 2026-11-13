@@ -14,61 +14,71 @@ def main():
     names = ["always_small", "always_large", "cheap_first_cascade", "calibrated_routing"]
     labels = ["Always small", "Always large", "Cheap-first cascade", "Calibrated routing"]
     rows = [report["policies"][name] for name in names]
+    colors = ["#9aa9b7", "#52677d", "#c28a42", "#087f8c"]
     plt.rcParams.update({
-        "svg.hashsalt": "orchestration-report", "font.family": "DejaVu Serif",
-        "mathtext.fontset": "dejavuserif", "font.size": 10,
+        "svg.hashsalt": "orchestration-report", "font.family": "DejaVu Sans",
+        "font.size": 10, "text.color": "#172d46", "axes.labelcolor": "#41546a",
+        "axes.edgecolor": "#b9c5cf", "axes.linewidth": 0.7,
+        "xtick.color": "#526477", "ytick.color": "#526477",
+        "xtick.major.size": 0, "ytick.major.size": 0,
         "axes.spines.top": False, "axes.spines.right": False,
-        "axes.spines.left": False, "axes.linewidth": 0.6,
-        "xtick.major.width": 0.6, "xtick.major.size": 3,
-        "ytick.major.size": 0, "text.color": "#222222",
-        "axes.labelcolor": "#222222", "xtick.color": "#333333",
-        "ytick.color": "#222222", "figure.facecolor": "white",
-        "axes.facecolor": "white", "savefig.facecolor": "white",
+        "figure.facecolor": "white", "axes.facecolor": "white",
+        "savefig.facecolor": "white",
     })
-    fig, axes = plt.subplots(1, 3, figsize=(11.2, 3.8), sharey=True)
-    positions = list(range(len(rows)))
-    values = [[r["success_rate"] * 100 for r in rows],
-              [r["simulated_cost"] * 1000 for r in rows],
-              [r["simulated_p95_ms"] for r in rows]]
-    titles = ["(a) Task success", "(b) Total simulated cost", "(c) Modeled tail latency"]
-    xlabels = ["Exact-match success (%)", r"Cost units ($\times 10^{-3}$)", "p95 latency (ms)"]
-    limits = [(0, 118), (0, 34), (0, 880)]
-    ticks = [[0, 25, 50, 75, 100], [0, 10, 20, 30], [0, 200, 400, 600, 800]]
-    for panel, (ax, numbers, title, xlabel) in enumerate(zip(axes, values, titles, xlabels)):
-        ax.set_title(title, loc="left", pad=13, fontsize=10)
-        ax.set_xlim(*limits[panel])
-        ax.set_xticks(ticks[panel])
-        ax.set_xlabel(xlabel, labelpad=8, fontsize=9)
-        ax.tick_params(axis="x", labelsize=8)
-        ax.set_axisbelow(True)
-        ax.grid(axis="x", color="#e5e5e5", linewidth=0.5)
-        if panel == 0:
-            lower = [r["success_rate_wilson_95"][0] * 100 for r in rows]
-            upper = [r["success_rate_wilson_95"][1] * 100 for r in rows]
-            ax.errorbar(numbers, positions,
-                        xerr=[[n-lo for n, lo in zip(numbers, lower)],
-                              [hi-n for n, hi in zip(numbers, upper)]],
-                        fmt="o", markersize=4.5, color="#222222", ecolor="#444444",
-                        elinewidth=0.9, capsize=3, capthick=0.8, zorder=3)
-            # Place annotations beyond the interval, not on the whiskers.
-            for y, number, hi in zip(positions, numbers, upper):
-                ax.annotate(f"{number:.1f}", (hi, y), xytext=(5, 0),
-                            textcoords="offset points", va="center", fontsize=8)
-        else:
-            ax.hlines(positions, 0, numbers, color="#bbbbbb", linewidth=0.8)
-            ax.plot(numbers, positions, "o", markersize=4.5, color="#222222", zorder=3)
-            for y, number in zip(positions, numbers):
-                label = f"{number:.2f}" if panel == 1 else f"{number:.0f}"
-                ax.annotate(label, (number, y), xytext=(6, 0),
-                            textcoords="offset points", va="center", fontsize=8)
-    axes[0].set_yticks(positions, labels, fontsize=9)
-    axes[0].set_ylim(3.5, -0.5)
-    fig.subplots_adjust(left=0.20, right=0.985, top=0.84, bottom=0.29, wspace=0.28)
-    fig.text(0.02, 0.10,
-             f"Synthetic replay; {report['test_tasks']} held-out tasks. Whiskers: 95% Wilson intervals for task success.",
-             fontsize=8, color="#444444")
-    fig.text(0.02, 0.035, "Cost uses illustrative token rates; latency uses fixed provider delays.",
-             fontsize=8, color="#444444")
+    fig, axes = plt.subplots(1, 2, figsize=(12.4, 5.8),
+                             gridspec_kw={"width_ratios": [1.65, 1]})
+    quality, latency = axes
+    costs = [r["simulated_cost"] / report["policies"]["always_large"]["simulated_cost"] * 100 for r in rows]
+    success = [r["success_rate"] * 100 for r in rows]
+    offsets = [(16, 12), (-8, -95), (-12, 22), (15, -32)]
+    alignments = ["left", "right", "right", "left"]
+    for i, (cost, rate, row, color) in enumerate(zip(costs, success, rows, colors)):
+        lo, hi = [v * 100 for v in row["success_rate_wilson_95"]]
+        quality.errorbar(cost, rate, yerr=[[rate-lo], [hi-rate]], color=color,
+                         fmt="o", markersize=9, elinewidth=1.5, capsize=3.5,
+                         markeredgecolor="white", markeredgewidth=1.2, zorder=4)
+        quality.annotate(f"{labels[i]}\n{rate:.1f}% success · {cost:.1f}% cost",
+                         (cost, rate), xytext=offsets[i], textcoords="offset points",
+                         ha=alignments[i], va="bottom" if i in (0, 2) else "top",
+                         fontsize=9, linespacing=1.6, color="#172d46",
+                         arrowprops={"arrowstyle": "-", "color": color, "lw": 0.8,
+                                     "shrinkA": 6, "shrinkB": 8})
+    quality.set_xlim(0, 118)
+    quality.set_ylim(40, 111)
+    quality.set_xticks([0, 25, 50, 75, 100])
+    quality.set_yticks([40, 60, 80, 100])
+    quality.set_xlabel("Modeled cost (% of always-large)", labelpad=12, fontsize=10)
+    quality.set_ylabel("Exact-match success (%)", labelpad=10, fontsize=10)
+    quality.set_title("QUALITY / COST", loc="left", fontsize=10, fontweight="bold", pad=20)
+    quality.grid(color="#e9eef2", linewidth=0.7)
+    quality.set_axisbelow(True)
+    bars = latency.bar(range(4), [r["simulated_p95_ms"] for r in rows],
+                       color=colors, width=0.52, zorder=3)
+    for bar, row in zip(bars, rows):
+        latency.text(bar.get_x()+bar.get_width()/2, bar.get_height()+22,
+                     f'{row["simulated_p95_ms"]:.0f}', ha="center", fontsize=11,
+                     fontweight="medium", color="#172d46")
+    latency.set_xticks(range(4), ["Always\nsmall", "Always\nlarge",
+                                  "Cheap-first\ncascade", "Calibrated\nrouting"], fontsize=9)
+    latency.set_ylim(0, 850)
+    latency.set_yticks([0, 200, 400, 600, 800])
+    latency.set_ylabel("Modeled p95 latency (ms)", labelpad=10, fontsize=10)
+    latency.set_title("TAIL LATENCY", loc="left", fontsize=10, fontweight="bold", pad=20)
+    latency.grid(axis="y", color="#e9eef2", linewidth=0.7)
+    latency.set_axisbelow(True)
+    latency.spines["left"].set_visible(False)
+    fig.subplots_adjust(left=0.08, right=0.98, top=0.73, bottom=0.24, wspace=0.30)
+    fig.text(0.035, 0.94, "Routing performance & resource trade-offs",
+             fontsize=19, color="#172d46", fontweight="medium", va="top")
+    fig.text(0.035, 0.865,
+             f'{report["test_tasks"]} held-out tasks  /  Synthetic replay  /  Four routing policies',
+             fontsize=10, color="#63758a")
+    fig.text(0.035, 0.105,
+             "Vertical whiskers show 95% Wilson intervals. Lower cost and higher success are preferable.",
+             fontsize=8.5, color="#63758a")
+    fig.text(0.035, 0.055,
+             "Costs use illustrative token rates; latency uses fixed provider delays.",
+             fontsize=8.5, color="#63758a")
     fig.savefig(root / "routing_tradeoffs.svg", metadata={"Date": None}, bbox_inches="tight")
     plt.close(fig)
 
